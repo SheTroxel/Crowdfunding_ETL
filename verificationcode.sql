@@ -1,29 +1,17 @@
 ----Create tables --------------------------------------
-select campaign 
+select * 
 from campaign;
 
 ---------------------------
-select category
+select *
 from category;
 
 --------------------------
-select contacts
+select *
 from contacts;
 
 ---------------------------
-select subcategory
+select *
 from subcategory;
 
------import csv files -----------------------------------
----verify data ------------------------------------------
-select subcategory_id
-	, subcategory
-from subcategory;
-
----------------------------
-select category_id
-	, category
-from category;
-
------------------------------
 
