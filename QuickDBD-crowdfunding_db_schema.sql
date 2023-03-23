@@ -1,19 +1,8 @@
-CREATE TABLE "category" (
-    "category_id" varchar   NOT NULL,
-    "category" varchar   NOT NULL,
-    CONSTRAINT "pk_category" PRIMARY KEY (
-        "category_id"
-     )
-);
+DROP SCHEMA IF EXISTS "Crowdfunding_dbschema" ;
 
-CREATE TABLE "subcategory" (
-    "subcategory_id" varchar   NOT NULL,
-    "subcategory" varchar   NOT NULL,
-    CONSTRAINT "pk_subcategory" PRIMARY KEY (
-        "subcategory_id"
-     )
-);
-
+CREATE SCHEMA IF NOT EXISTS "Crowdfunding_dbschema"
+    AUTHORIZATION postgres;
+	
 CREATE TABLE "campaign" (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
@@ -34,6 +23,22 @@ CREATE TABLE "campaign" (
      )
 );
 
+CREATE TABLE "category" (
+    "category_id" varchar   NOT NULL,
+    "category" varchar   NOT NULL,
+    CONSTRAINT "pk_category" PRIMARY KEY (
+        "category_id"
+     )
+);
+
+CREATE TABLE "subcategory" (
+    "subcategory_id" varchar   NOT NULL,
+    "subcategory" varchar   NOT NULL,
+    CONSTRAINT "pk_subcategory" PRIMARY KEY (
+        "subcategory_id"
+     )
+);
+
 CREATE TABLE "contacts" (
     "contact_id" int   NOT NULL,
     "first_name" varchar    NOT NULL,
@@ -51,4 +56,4 @@ ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_category_id" FOREIGN KEY("cat
 REFERENCES "category" ("category_id");
 
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_id" FOREIGN KEY("subcategory_id")
-REFERENCES "subcategory" ("subcategory_id");
+REFERENCES "subcategory" ("subcategory_id");	
